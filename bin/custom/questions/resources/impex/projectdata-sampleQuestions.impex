@@ -1,0 +1,7 @@
+UPDATE GenericItem[processor = de.hybris.platform.commerceservices.impex.impl.ConfigPropertyImportProcessor]; pk[unique = true]
+
+$productCatalog=electronicsProductCatalog
+$catalogVersion=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$productCatalog]),CatalogVersion.version[default=Online])[default=$productCatalog:Online]
+INSERT_UPDATE Question; code[unique = true]; question     ; product(code, $catalogVersion); questionCustomer(name)
+                      ; "0001"             ; "Question 1" ; 1382080; "Anonymous"
+                      ; "0002"             ; "Question 2" ; 1382080; "Anonymous"
