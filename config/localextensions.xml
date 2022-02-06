@@ -215,6 +215,7 @@
     <extension name='previewwebservices' />
     <extension name='permissionsfacades' />
     <extension name='permissionswebservices' />
+    <extension name="questions" />
     <extension name='webservicescommons' />
   </extensions>
 </hybrisconfig>
