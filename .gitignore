@@ -1,5 +1,6 @@
 # Folders to ignore, whatever the place they are
  
+hybris/bin/custom/training/trainingstorefront/web/addonsrc/*
 .metadata
 classes
 hybris/bin/**/bin

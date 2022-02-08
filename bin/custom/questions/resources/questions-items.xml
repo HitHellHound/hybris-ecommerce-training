@@ -44,5 +44,31 @@
 				</attribute>
 			</attributes>
 		</itemtype>
+
+		<itemtype code="QuestionsCMSComponent" generate="true" autocreate="true"
+				  jaloclass="com.expertsoft.jalo.cms2.components.QuestionsCMSComponent"
+				  extends="AbstractCMSComponent">
+			<attributes>
+				<attribute qualifier="numberOfQuestionsToShow" type="java.lang.Integer">
+					<defaultvalue>3</defaultvalue>
+					<persistence type="property"/>
+					<modifiers optional="false"/>
+				</attribute>
+				<attribute qualifier="size" type="java.lang.Integer">
+					<defaultvalue>14</defaultvalue>
+					<persistence type="property"/>
+				</attribute>
+				<attribute qualifier="countOfQuestionsToBeShown" type="java.lang.Integer">
+					<defaultvalue>3</defaultvalue>
+					<persistence type="property"/>
+					<modifiers search="true"/>
+				</attribute>
+				<attribute qualifier="fontSize" type="java.lang.Integer">
+					<defaultvalue>14</defaultvalue>
+					<persistence type="property"/>
+					<modifiers search="true"/>
+				</attribute>
+			</attributes>
+		</itemtype>
 	</itemtypes>
 </items>
