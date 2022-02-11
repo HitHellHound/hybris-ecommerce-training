@@ -17,4 +17,14 @@
 	</bean>
 	-->
 
+	<bean class="questions.data.QuestionData">
+		<property name="question" type="String"/>
+		<property name="questionCustomerName" type="String"/>
+		<property name="answer" type="String"/>
+		<property name="answerCustomerName" type="String"/>
+	</bean>
+
+	<bean class="de.hybris.platform.commercefacades.product.data.ProductData">
+		<property name="questions" type="java.util.List&lt;questions.data.QuestionData&gt;"/>
+	</bean>
 </beans>

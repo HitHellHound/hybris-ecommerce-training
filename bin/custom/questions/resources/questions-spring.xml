@@ -36,4 +36,16 @@
 		<property name="extensionName" value="questions" />
 	</bean>
 
+	<bean id="questionModel2DataConverter" parent="abstractPopulatingConverter">
+		<property name="targetClass" value="questions.data.QuestionData"/>
+		<property name="populators">
+			<list>
+				<ref bean="questionPopulator"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="questionPopulator" class="com.expertsoft.populators.QuestionPopulator">
+
+	</bean>
 </beans>
