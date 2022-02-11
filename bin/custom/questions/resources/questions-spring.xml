@@ -48,4 +48,42 @@
 	<bean id="questionPopulator" class="com.expertsoft.populators.QuestionPopulator">
 
 	</bean>
+
+	<alias name="defaultProductConverter" alias="productConverter"/>
+	<bean id="defaultProductConverter" parent="abstractPopulatingConverter">
+		<property name="targetClass" value="de.hybris.platform.commercefacades.product.data.ProductData"/>
+		<property name="populators">
+			<list>
+				<ref bean="productPopulator"/>
+				<ref bean="productQuestionsPopulator"/>
+			</list>
+		</property>
+	</bean>
+
+	<alias name="defaultCommerceSearchResultProductConverter" alias="commerceSearchResultProductConverter"/>
+	<bean id="defaultCommerceSearchResultProductConverter" parent="abstractPopulatingConverter">
+		<property name="targetClass" value="de.hybris.platform.commercefacades.product.data.ProductData"/>
+		<property name="populators">
+			<list>
+				<ref bean="commerceSearchResultProductPopulator"/>
+				<ref bean="searchResultPickupAvailabilityPopulator"/>
+				<ref bean="searchProductQuestionsPopulator"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="searchProductQuestionsPopulator" class="com.expertsoft.populators.SearchProductQuestionsPopulator"
+		  parent="variantCommerceSearchResultProductPopulator">
+
+	</bean>
+
+	<bean id="productQuestionsPopulator" class="com.expertsoft.populators.ProductQuestionsPopulator">
+		<property name="questionConverter" ref="questionModel2DataConverter"/>
+	</bean>
+
+	<bean id="productNumberOfQuestionsProvider"
+		  class="com.expertsoft.providers.ProductNumberOfQuestionsProvider"
+		  parent="abstractPropertyFieldValueProvider">
+		<property name="fieldNameProvider" ref="solrFieldNameProvider"/>
+	</bean>
 </beans>
