@@ -10,7 +10,11 @@ public class SearchProductQuestionsPopulator extends SearchResultVariantProductP
         super.populate(source, target);
         final Object obj = this.getValue(source, "numberOfQuestions");
         if (obj != null) {
-            target.setNumberOfQuestions(this.<Integer>getValue(source, "numberOfQuestions"));
+            if (obj instanceof Integer){
+                target.setNumberOfQuestions(this.<Integer>getValue(source, "numberOfQuestions"));
+            } else {
+                target.setNumberOfQuestions(Integer.valueOf(this.<String>getValue(source, "numberOfQuestions")));
+            }
         } else {
             target.setNumberOfQuestions(0);
         }
