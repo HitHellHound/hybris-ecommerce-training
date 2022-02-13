@@ -1,0 +1,18 @@
+UPDATE GenericItem[processor = de.hybris.platform.commerceservices.impex.impl.ConfigPropertyImportProcessor]; pk[unique = true]
+
+$productCatalog = electronicsProductCatalog
+$catalogVersion = catalogVersion(CatalogVersion.catalog(Catalog.id[default=$productCatalog]), CatalogVersion.version[default=Online])[default=$productCatalog:Online]
+
+
+INSERT_UPDATE UserPriceGroup; code[unique = true]
+                            ; specialPriceGroup
+
+INSERT_UPDATE Customer; uid[unique = true]       ; Europe1PriceFactory_UPG(code)
+                      ; keenreviewer9@hybris.com ; specialPriceGroup
+
+
+INSERT_UPDATE PriceRow; product(code, $catalogVersion)[unique = true]; ug(code)[allownull = true][unique = true]; net[unique = true, default = false]; currency(isocode)[unique = true]; price; unit(code[unique = true, default = pieces]); minqtd; unitFactor
+                      ; 1934793                                      ; specialPriceGroup                        ;                                    ; CNY                             ; 500  ; pieces                                     ; 3     ; 1
+                      ; 1934793                                      ;                                          ;                                    ; CNY                             ; 600  ; pieces                                     ; 3     ; 1
+
+
