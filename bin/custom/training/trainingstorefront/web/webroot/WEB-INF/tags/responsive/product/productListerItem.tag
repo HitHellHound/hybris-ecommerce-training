@@ -45,8 +45,9 @@
 		<c:if test="${not empty product.summary}">
 			<div class="product__listing--description">${ycommerce:sanitizeHTML(product.summary)}</div>
 		</c:if>
-
-
+		<c:if test="${product.numberOfQuestions > 0}">
+			<h4>Number of questions: ${product.numberOfQuestions}</h4>
+		</c:if>
 
 		<c:set var="product" value="${product}" scope="request"/>
 		<c:set var="addToCartText" value="${addToCartText}" scope="request"/>
