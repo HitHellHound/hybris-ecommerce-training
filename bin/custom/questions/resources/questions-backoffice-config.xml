@@ -1,0 +1,21 @@
+<config xmlns="http://www.hybris.com/cockpit/config"
+        xmlns:y="http://www.hybris.com/cockpit/config/hybris"
+        xmlns:wz="http://www.hybris.com/cockpitng/config/wizard-config"
+        xmlns:explorer-tree="http://www.hybris.com/cockpitng/config/explorertree"
+        xmlns:editorArea="http://www.hybris.com/cockpitng/component/editorArea"
+        xmlns:list-view="http://www.hybris.com/cockpitng/component/listView"
+        xmlns:advanced-search="http://www.hybris.com/cockpitng/config/advancedsearch"
+        xmlns:simple-search="http://www.hybris.com/cockpitng/config/simplesearch">
+
+    <context component="explorer-tree" merge-by="module" parent="auto" module="questions">
+        <explorer-tree:explorer-tree>
+            <explorer-tree:navigation-node id="questions_addon">
+                <explorer-tree:type-node code="QuestionType" id="questiontype"/>
+            </explorer-tree:navigation-node>
+        </explorer-tree:explorer-tree>
+    </context>
+
+    <!--<context type="Question" component="base" merge-by="type">
+
+     </context> -->
+</config>

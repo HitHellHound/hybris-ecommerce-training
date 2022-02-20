@@ -18,6 +18,16 @@
 				<modifiers read="true" write="true" search="true" optional="true" />
 			</targetElement>
 		</relation>
+
+		<relation code="Question2QuestionNotifyProcess" localized="false" autocreate="true" generate="true">
+			<deployment table="QuestToNotifyProc" typecode="30011"/>
+			<sourceElement qualifier="questions" type="Question" collectiontype="set" cardinality="many">
+				<modifiers read="true" write="true" search="true" optional="true"/>
+			</sourceElement>
+			<targetElement type="QuestionNotifyProcess" navigable="false" cardinality="many">
+
+			</targetElement>
+		</relation>
 	</relations>
 	
 	<itemtypes>
@@ -67,6 +77,21 @@
 					<defaultvalue>14</defaultvalue>
 					<persistence type="property"/>
 					<modifiers search="true"/>
+				</attribute>
+			</attributes>
+		</itemtype>
+		
+		<itemtype code="QuestionNotifyProcess" generate="true" autocreate="true"
+				  extends="BusinessProcess">
+
+		</itemtype>
+
+		<itemtype code="QuestionNotifyCronJob" generate="true" autocreate="true"
+				  extends="CronJob">
+			<attributes>
+				<attribute qualifier="lastNotifyDate" type="java.util.Date">
+					<persistence type="property"/>
+					<modifiers write="true" read="true" search="true" optional="true"/>
 				</attribute>
 			</attributes>
 		</itemtype>
