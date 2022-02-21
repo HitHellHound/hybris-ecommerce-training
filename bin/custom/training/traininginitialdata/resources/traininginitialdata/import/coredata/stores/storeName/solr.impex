@@ -81,5 +81,5 @@ INSERT_UPDATE SolrSortField; sort(indexedType(identifier), code)[unique = true];
                            ; electronicsProductType:numberOfQuestions-asc      ; numberOfQuestions       ; true
                            ; electronicsProductType:numberOfQuestions-desc     ; numberOfQuestions       ; false
 
-INSERT_UPDATE SolrSearchQueryProperty; indexedProperty(name)[unique = true]; searchQueryTemplate(name)[unique = true]; priority; facet[default = true]; facetType(code)
-                                     ; numberOfQuestions                   ; DEFAULT                                 ; 4088    ;                      ; MultiSelectOr
+INSERT_UPDATE SolrSearchQueryProperty; indexedProperty(name)[unique = true]; searchQueryTemplate(name)[unique = true]; priority; facet[default = true]; facetType(code); facetSortProvider
+                                     ; numberOfQuestions                   ; DEFAULT                                 ; 4088    ;                      ; MultiSelectOr  ; facetNameSortProviderAscending
