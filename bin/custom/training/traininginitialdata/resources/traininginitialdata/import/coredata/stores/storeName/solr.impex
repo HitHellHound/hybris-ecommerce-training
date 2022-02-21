@@ -43,8 +43,9 @@ INSERT_UPDATE SolrFacetSearchConfig; name[unique = true]; description; indexName
 UPDATE BaseSite; uid[unique = true]; solrFacetSearchConfiguration(name)
 
 # Define price range set
-INSERT_UPDATE SolrValueRangeSet; name[unique = true]    ; qualifier; type; solrValueRanges(&rangeValueRefID)
-                               ; numberOfQuestionsRange ; NoQ      ; int ; NoQRangeRef0, NoQRangeRef1, NoQRangeRef2, NoQRangeRef3, NoQRangeRef4, NoQRangeRef5
+INSERT_UPDATE SolrValueRangeSet; name[unique = true]    ; qualifier ; type; solrValueRanges(&rangeValueRefID)
+                               ; numberOfQuestionsRange ; NoQ       ; int ; NoQRangeRef0, NoQRangeRef1, NoQRangeRef2, NoQRangeRef3, NoQRangeRef4, NoQRangeRef5
+                               ; warruntyYearsRange     ; WarrYears ; int ; WYRangeRef0, WYRangeRef1, WYRangeRef2, WYRangeRef3, WYRangeRef4
 
 # Define price ranges
 INSERT_UPDATE SolrValueRange; &rangeValueRefID; solrValueRangeSet(name)[unique = true]; name[unique = true]; from; to
@@ -54,6 +55,11 @@ INSERT_UPDATE SolrValueRange; &rangeValueRefID; solrValueRangeSet(name)[unique =
                             ; NoQRangeRef3    ; numberOfQuestionsRange                ; 3                  ; 3   ; 3
                             ; NoQRangeRef4    ; numberOfQuestionsRange                ; 4                  ; 4   ; 4
                             ; NoQRangeRef5    ; numberOfQuestionsRange                ; more               ; 5   ; 1000
+                            ; WYRangeRef0     ; warruntyYearsRange                    ; 0 years            ; 0   ; 0
+                            ; WYRangeRef1     ; warruntyYearsRange                    ; 1 years            ; 1   ; 1
+                            ; WYRangeRef2     ; warruntyYearsRange                    ; 2 years            ; 2   ; 2
+                            ; WYRangeRef3     ; warruntyYearsRange                    ; 3 years            ; 3   ; 3
+                            ; WYRangeRef4     ; warruntyYearsRange                    ; more years         ; 4   ; 1000
 
 # Non-facet properties
 INSERT_UPDATE SolrIndexedProperty; solrIndexedType(identifier)[unique = true]; name[unique = true]; type(code); sortableType(code); currency[default = false]; localized[default = false]; multiValue[default = false]; useForSpellchecking[default = false]; useForAutocomplete[default = false]; fieldValueProvider; valueProviderParameter
@@ -67,6 +73,7 @@ INSERT_UPDATE SolrIndexedProperty; solrIndexedType(identifier)[unique = true]; n
 # Other facet properties
 INSERT_UPDATE SolrIndexedProperty; solrIndexedType(identifier)[unique = true]; name[unique = true]; type(code); sortableType(code); currency[default = false]; localized[default = false]; multiValue[default = false]; facet[default = true]; facetType(code); facetSort(code); priority; visible; useForSpellchecking[default = false]; useForAutocomplete[default = false]; fieldValueProvider               ; facetDisplayNameProvider; customFacetSortProvider; topValuesProvider        ; rangeSets(name)
                                  ; electronicsProductType                    ; numberOfQuestions  ; int       ;                   ;                          ;                           ;                            ;                      ; MultiSelectOr  ; Alpha          ; 4000    ; true   ;                                     ;                                    ; productNumberOfQuestionsProvider ;                         ;                        ; defaultTopValuesProvider ; numberOfQuestionsRange
+                                 ; electronicsProductType                    ; warrantyYears      ; int       ;                   ;                          ;                           ;                            ;                      ; MultiSelectOr  ; Alpha          ; 4010    ; true   ;                                     ;                                    ; springELValueProvider            ;                         ;                        ; defaultTopValuesProvider ; warruntyYearsRange
 
 # Create the queries that will be used to extract data for Solr
 INSERT_UPDATE SolrIndexerQuery; solrIndexedType(identifier)[unique = true]; identifier[unique = true]; type(code); injectCurrentDate[default = true]; injectCurrentTime[default = true]; injectLastIndexTime[default = true]; query; user(uid)
@@ -82,4 +89,5 @@ INSERT_UPDATE SolrSortField; sort(indexedType(identifier), code)[unique = true];
                            ; electronicsProductType:numberOfQuestions-desc     ; numberOfQuestions       ; false
 
 INSERT_UPDATE SolrSearchQueryProperty; indexedProperty(name)[unique = true]; searchQueryTemplate(name)[unique = true]; priority; facet[default = true]; facetType(code); facetSortProvider
+                                     ; warrantyYears                       ; DEFAULT                                 ; 4100    ;                      ; MultiSelectOr  ; facetNameSortProviderAscending
                                      ; numberOfQuestions                   ; DEFAULT                                 ; 4088    ;                      ; MultiSelectOr  ; facetNameSortProviderAscending

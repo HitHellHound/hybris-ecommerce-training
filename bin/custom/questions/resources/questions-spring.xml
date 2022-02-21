@@ -49,6 +49,10 @@
 
 	</bean>
 
+	<bean id="productWarrantyYearsPopulator" class="com.expertsoft.populators.ProductWarrantyYearsPopulator">
+
+	</bean>
+
 	<alias name="defaultProductConverter" alias="productConverter"/>
 	<bean id="defaultProductConverter" parent="abstractPopulatingConverter">
 		<property name="targetClass" value="de.hybris.platform.commercefacades.product.data.ProductData"/>
@@ -56,6 +60,7 @@
 			<list>
 				<ref bean="productPopulator"/>
 				<ref bean="productQuestionsPopulator"/>
+				<ref bean="productWarrantyYearsPopulator"/>
 			</list>
 		</property>
 	</bean>
@@ -68,11 +73,17 @@
 				<ref bean="commerceSearchResultProductPopulator"/>
 				<ref bean="searchResultPickupAvailabilityPopulator"/>
 				<ref bean="searchProductQuestionsPopulator"/>
+				<ref bean="searchProductWarrantyYearsPopulator"/>
 			</list>
 		</property>
 	</bean>
 
 	<bean id="searchProductQuestionsPopulator" class="com.expertsoft.populators.SearchProductQuestionsPopulator"
+		  parent="variantCommerceSearchResultProductPopulator">
+
+	</bean>
+
+	<bean id="searchProductWarrantyYearsPopulator" class="com.expertsoft.populators.SearchProductWarrantyYearsPopulator"
 		  parent="variantCommerceSearchResultProductPopulator">
 
 	</bean>

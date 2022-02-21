@@ -49,6 +49,8 @@
 			<h4>Number of questions: ${product.numberOfQuestions}</h4>
 		</c:if>
 
+		<h5>Warranty years: ${product.warrantyYears}</h5>
+
 		<c:set var="product" value="${product}" scope="request"/>
 		<c:set var="addToCartText" value="${addToCartText}" scope="request"/>
 		<c:set var="addToCartUrl" value="${addToCartUrl}" scope="request"/>

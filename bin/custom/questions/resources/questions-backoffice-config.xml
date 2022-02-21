@@ -47,6 +47,16 @@
         </editorArea:editorArea>
     </context>
 
+    <context type="Product" component="editor-area" merge-by="type">
+        <editorArea:editorArea>
+            <editorArea:tab name="backoffice.personalizationservices.properties">
+                <editorArea:section name="Custom Property" merge-mode="append">
+                    <editorArea:attribute qualifier="warrantyYears" label="Warranty years"/>
+                </editorArea:section>
+            </editorArea:tab>
+        </editorArea:editorArea>
+    </context>
+
     <!-- List view configuration -->
     <context type="Question" component="listview" merge-by="type">
         <list-view:list-view>
